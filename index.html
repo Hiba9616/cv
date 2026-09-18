@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed Hiba — Healthcare Data Analyst</title>
+<meta name="description" content="Clinical pharmacist turned data analyst. Power BI dashboards on healthcare, HR and sales data. Based in Rome.">
+<meta name="theme-color" content="#11201A">
+<meta property="og:title" content="Ahmed Hiba — Healthcare Data Analyst">
+<meta property="og:description" content="Clinical pharmacist turned data analyst. Power BI dashboards on healthcare, HR and sales data.">
+<meta property="og:image" content="photo.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2311201a'/%3E%3Ctext x='50' y='69' font-size='54' font-family='Georgia,serif' font-weight='700' fill='%23f0b94e' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,400..600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#11201A;
+  --ink-2:#57685C;
+  --paper:#F5F0E3;
+  --card:#FCF9F0;
+  --line:#E1D8C4;
+  --line-dark:rgba(245,240,227,.16);
+  --pine:#1D5C46;
+  --pine-deep:#123626;
+  --amber:#B5771C;
+  --amber-glow:#F0B94E;
+  --mist:#A9BAAE;
+  --r:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 17px/1.62 "Source Sans 3",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:"Fraunces","Source Sans 3",serif;font-optical-sizing:auto;line-height:1.04;margin:0;font-weight:600;letter-spacing:-.01em}
+h3{font-family:"Source Sans 3",sans-serif;line-height:1.3;margin:0;font-weight:700}
+p{margin:0 0 14px}
+a{color:var(--pine)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:2px}
+
+/* عرض المحتوى: عمود أفقي فقط، عشان أي حد يضيف مسافة رأسية من غير ما يبوّظ الباقي */
+.wrap{max-width:1080px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+section{padding:88px 0}
+
+/* ---------------- أقسام غامقة (الغلاف الأول والأخير) ---------------- */
+.dark{background:var(--ink);color:var(--paper)}
+
+/* ---------------- الملاحة العلوية ---------------- */
+.nav{position:sticky;top:0;z-index:30;background:rgba(17,32,26,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark)}
+.nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;min-height:64px;padding-top:10px;padding-bottom:10px}
+.nav .mark{width:28px;height:28px;border-radius:7px;background:var(--amber-glow);color:var(--ink);display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:14px;flex:none}
+.nav .brand{font-family:"Fraunces",serif;font-weight:600;font-size:17px;color:var(--paper);text-decoration:none;display:flex;align-items:center;gap:10px}
+.nav .brand small{display:block;font-family:"Source Sans 3",sans-serif;font-weight:400;font-size:12px;color:var(--mist);letter-spacing:.01em;margin-top:1px}
+.nav .links{margin-left:auto;display:flex;align-items:center;gap:22px;font-size:15px}
+.nav .links a{text-decoration:none;color:var(--mist)}
+.nav .links a:hover{color:var(--paper)}
+.nav .cv{text-decoration:none;color:var(--ink);background:var(--amber-glow);padding:8px 16px;border-radius:var(--r);font-weight:600;font-size:14px;white-space:nowrap}
+.nav .cv:hover{background:#F7C767}
+
+/* ---------------- الغلاف: الاسم والتعريف ---------------- */
+.hero-cover{padding-top:52px}
+.hero{display:grid;grid-template-columns:1fr 250px;gap:52px;align-items:center;padding-top:20px;padding-bottom:44px}
+.hero-text h1{font-size:clamp(42px,6.2vw,70px)}
+.hero-text .role{font-family:"Fraunces",serif;font-style:italic;font-weight:500;font-size:22px;color:var(--mist);margin:16px 0 18px}
+.hero-text .bio{font-size:17.5px;color:var(--mist);max-width:56ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.cta a{text-decoration:none;font-weight:600;font-size:16px;padding:12px 24px;border-radius:var(--r);display:inline-block}
+.cta a.solid{background:var(--amber-glow);color:var(--ink)}
+.cta a.solid:hover{background:#F7C767}
+.cta a.line{border:1px solid rgba(245,240,227,.32);color:var(--paper)}
+.cta a.line:hover{border-color:var(--amber-glow);color:var(--amber-glow)}
+
+.portrait-frame{background:#0B140F;padding:10px;border:1px solid rgba(240,185,78,.35);border-radius:12px}
+.portrait-frame img{display:block;width:100%;border-radius:5px}
+
+/* شريط الموجة: من إيقاع قلب متقطع لخط بيانات صاعد — الانتقال من الصيدلة للداتا في رسمة واحدة */
+.trace-wrap{width:100%;overflow:hidden;line-height:0;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+.trace{width:100%;height:118px;display:block}
+.trace .grid-line{stroke:var(--line-dark);stroke-width:1;stroke-dasharray:3 6}
+.trace-line{fill:none;stroke:var(--amber-glow);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 7px rgba(240,185,78,.5));stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.6s cubic-bezier(.65,0,.35,1) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+.readout{display:flex;flex-wrap:wrap;gap:26px 48px;padding-top:30px;padding-bottom:46px}
+.readout div{display:flex;flex-direction:column;gap:4px}
+.readout span{font-size:13px;color:var(--mist)}
+.readout b{font-weight:600;font-size:15.5px;color:var(--paper)}
+
+/* ---------------- مقدمة كل قسم ---------------- */
+.head{max-width:60ch;margin-bottom:38px}
+.head h2{font-size:clamp(29px,3.4vw,36px)}
+.head h2::after{content:"";display:block;width:42px;height:3px;background:var(--amber);margin-top:16px;border-radius:2px}
+.head p{color:var(--ink-2);margin-top:14px}
+
+/* ---------------- المشاريع: كل كارت بيبدأ بسكرين شوت حقيقي من الداشبورد ---------------- */
+.work{display:grid;gap:26px}
+.case{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.shot-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 20px;background:var(--ink)}
+.shot-bar .tag{display:inline-block;font-size:12.5px;font-weight:600;color:var(--amber-glow);background:rgba(240,185,78,.12);border:1px solid rgba(240,185,78,.35);padding:3px 11px;border-radius:20px}
+.shot-bar .tool{font-size:12.5px;color:var(--mist);font-weight:600;white-space:nowrap}
+.case .shot img{display:block;width:100%;height:auto}
+.case-content{padding:26px 28px 30px}
+.stat-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:20px;border-bottom:1px dashed var(--line)}
+.stat-row .num{font-family:"Fraunces",serif;font-size:33px;font-weight:600;color:var(--ink);flex:none;border-left:3px solid var(--amber);padding-left:14px;line-height:1.1}
+.stat-row .finding-line{margin:0;font-size:15.5px;color:var(--ink-2);max-width:56ch}
+.case h3{font-size:20px;margin-bottom:10px}
+.case-content>p{font-size:16px;max-width:62ch}
+.case ul{margin:0;padding-left:19px;font-size:15.5px;color:var(--ink-2);max-width:64ch}
+.case li{margin-bottom:6px}
+.case .meta{margin-top:18px;padding-top:15px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:8px 18px}
+.case .meta a{font-weight:600}
+
+/* ---------------- الخبرة ---------------- */
+.track{border-left:2px solid var(--line);padding-left:28px;margin-left:6px}
+.job{position:relative;padding-bottom:32px}
+.job::before{content:"";position:absolute;left:-35px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--pine)}
+.job .when{font-size:14px;color:var(--ink-2)}
+.job h3{font-size:18px;margin:4px 0 4px}
+.job .where{color:var(--pine);font-size:16px;font-weight:600}
+.job p{font-size:16px;color:var(--ink-2);margin:9px 0 0;max-width:66ch}
+
+/* ---------------- التعليم والشهادات ---------------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.edu{margin-bottom:28px}
+.edu .when{font-size:14px;color:var(--ink-2)}
+.edu h3{font-size:18px;margin:4px 0 3px}
+.edu .where{color:var(--pine);font-size:16px;font-weight:600}
+.edu p{font-size:15.5px;color:var(--ink-2);margin:8px 0 0}
+.certs{list-style:none;margin:0;padding:0}
+.certs li{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline}
+.certs li:first-child{padding-top:0}
+.certs .name{font-weight:600;font-size:16px}
+.certs .by{display:block;font-size:14px;color:var(--ink-2)}
+.certs .yr{margin-left:auto;font-size:14px;color:var(--ink-2);white-space:nowrap}
+.verify{margin-top:20px;font-size:14.5px;color:var(--ink-2)}
+
+/* ---------------- الأدوات واللغات ---------------- */
+.kit{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.kit h3{font-size:15px;color:var(--pine);margin-bottom:12px}
+.kit ul{list-style:none;margin:0;padding:0;font-size:16px;color:var(--ink-2)}
+.kit li{padding:5px 0;border-bottom:1px solid var(--line)}
+.kit li b{color:var(--ink);font-weight:600}
+
+/* ---------------- التواصل: الغلاف الأخير ---------------- */
+.contact-cover .wrap{padding-top:88px;padding-bottom:88px}
+.contact-cover h2{font-size:clamp(32px,4vw,44px)}
+.contact-cover .lede{color:var(--mist);max-width:54ch;margin-top:16px;font-size:17.5px}
+.reach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 44px;margin-top:34px;font-size:17px}
+.reach span{color:var(--mist);font-size:13.5px;display:block;margin-bottom:2px}
+.reach a{color:var(--amber-glow);text-decoration:none;border-bottom:1px solid rgba(240,185,78,.35)}
+.reach a:hover{color:var(--paper);border-color:var(--paper)}
+
+footer.foot{padding-top:22px;padding-bottom:34px;border-top:1px solid var(--line-dark)}
+footer.foot p{margin:0;font-size:14px;color:var(--mist)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .trace-line{stroke-dashoffset:0;animation:none}
+}
+
+@media (max-width:840px){
+  body{font-size:16px}
+  section{padding:64px 0}
+  .nav .cv{display:none}
+  .hero{grid-template-columns:1fr;gap:30px;padding-top:8px}
+  .portrait-frame{max-width:180px}
+  .trace{height:78px}
+  .case-content{padding:22px}
+  .stat-row .num{font-size:28px}
+  .split,.kit{grid-template-columns:1fr;gap:36px}
+  .reach{grid-template-columns:1fr}
+  .contact-cover .wrap{padding-top:64px;padding-bottom:64px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ القائمة العلوية ============ -->
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#"><span class="mark">A</span>Ahmed Hiba<small>Healthcare data analyst · Rome</small></a>
+  <div class="links">
+    <a href="#work">Dashboards</a>
+    <a href="#background">Background</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="cv" href="CV.pdf">Download CV</a>
+</div></nav>
+
+<!-- ============ الغلاف الأول: الاسم والتعريف والصورة ============ -->
+<header class="hero-cover dark">
+  <div class="wrap hero">
+    <div class="hero-text">
+      <h1>Ahmed Hiba</h1>
+      <p class="role">Clinical pharmacist who moved into data analysis</p>
+      <p class="bio">Six years in hospital and production pharmacy taught me which numbers change a decision and which ones just fill a report. I now build Power BI dashboards on health, HR and sales data — and I read them the way a clinician reads a chart. Based in Rome, open to analyst roles across Europe and remote.</p>
+      <div class="cta">
+        <a class="solid" href="#work">See the dashboards</a>
+        <a class="line" href="CV.pdf">Download CV</a>
+      </div>
+    </div>
+    <div class="portrait-frame">
+      <img src="photo.jpg" alt="Ahmed Hiba" width="250" height="250">
+    </div>
+  </div>
+
+  <div class="trace-wrap" aria-hidden="true">
+    <svg class="trace" viewBox="0 0 1000 150" preserveAspectRatio="none">
+      <line x1="0" y1="52" x2="1000" y2="52" class="grid-line"></line>
+      <line x1="0" y1="100" x2="1000" y2="100" class="grid-line"></line>
+      <polyline class="trace-line" pathLength="1000" points="0,100 18,100 30,90 42,100 58,100 66,120 74,20 82,115 92,100 108,100 122,88 136,100 150,100 168,100 180,90 192,100 208,100 216,120 224,20 232,115 242,100 258,100 272,88 286,100 300,100 318,100 330,90 342,100 358,100 366,120 374,20 382,115 392,100 408,100 422,88 436,100 450,100 500,88 540,92 580,68 620,74 660,50 700,56 740,32 780,38 820,18 860,24 900,12 940,16 1000,8"></polyline>
+    </svg>
+  </div>
+
+  <div class="wrap readout">
+    <div><span>Based in</span><b>Rome, Italy</b></div>
+    <div><span>Works in</span><b>Power BI · Tableau · SQL · Python</b></div>
+    <div><span>Speaks</span><b>Arabic · English C1 · Italian A2 · German A1</b></div>
+  </div>
+</header>
+
+<!-- ============ المشاريع: كل كارت يبدأ بالنتيجة ============ -->
+<section class="wrap" id="work">
+  <div class="head">
+    <h2>Dashboards</h2>
+    <p>Every project here started with a question someone would actually ask. The finding comes first; the method is underneath it.</p>
+  </div>
+
+  <div class="work">
+
+    <article class="case">
+      <div class="shot">
+        <div class="shot-bar"><span class="tag">Healthcare</span><span class="tool">Power BI</span></div>
+        <img src="dashboard-breast-cancer.png" alt="Power BI dashboard on breast cancer diagnostic parameters, showing feature importance, tumour size by diagnosis, and a 62.74% benign vs 37.26% malignant split" loading="lazy" width="1280" height="727">
+      </div>
+      <div class="case-content">
+        <div class="stat-row">
+          <span class="num">37.26%</span>
+          <p class="finding-line">of cases in the dataset were malignant — and tumour radius told them apart more sharply than any other measurement.</p>
+        </div>
+        <h3>Breast cancer diagnostic parameters</h3>
+        <p>Which measurements actually separate a malignant tumour from a benign one, and by how much?</p>
+        <ul>
+          <li>Ranked features by how cleanly they split the two diagnoses; radius and perimeter carried the most signal</li>
+          <li>Compared value ranges for compactness and smoothness across benign and malignant cases</li>
+          <li>Average tumour size reached 654.89 for benign cases, the larger and more frequent group at 62.74%</li>
+          <li>Scatter and line views of radius against perimeter, with a diagnosis slicer for interactive exploration</li>
+        </ul>
+        <div class="meta"><span>Power BI · DAX · data modelling</span></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="shot">
+        <div class="shot-bar"><span class="tag">Public health</span><span class="tool">Power BI</span></div>
+        <img src="dashboard-health-survey.png" alt="Power BI dashboard built on CDC BRFSS survey data, showing BMI, alcohol consumption, heart disease and self-rated health across 284,000 participants" loading="lazy" width="1280" height="721">
+      </div>
+      <div class="case-content">
+        <div class="stat-row">
+          <span class="num">284,000</span>
+          <p class="finding-line">survey participants, drawn from the CDC's Behavioral Risk Factor Surveillance System — drinking showed no direct link to heart disease, but it tracked closely with higher BMI.</p>
+        </div>
+        <h3>Health and lifestyle survey analysis</h3>
+        <p>Behavioural health data on a national scale, read for the habits that shape long-term risk.</p>
+        <ul>
+          <li>Average BMI landed at 28.54 — the overweight band — alongside an average alcohol-consumption reading of 5.19</li>
+          <li>13.18% of smokers reported heart disease, and more than 26% of participants rated their own health as poor</li>
+          <li>Depression rose steeply among participants with poor general health and unhealthy habits, and was more common among women</li>
+          <li>BMI category breakdown with filters by sex, so each finding can be checked per group</li>
+        </ul>
+        <div class="meta"><span>Power BI · Power Query</span></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="shot">
+        <div class="shot-bar"><span class="tag">People analytics</span><span class="tool">Tableau</span></div>
+        <img src="dashboard-attrition.png" alt="Attrition dashboard showing a 16.12% attrition rate across 1,470 employees, average salary, promotions, and headcount by department" loading="lazy" width="1280" height="727">
+      </div>
+      <div class="case-content">
+        <div class="stat-row">
+          <span class="num">16.12%</span>
+          <p class="finding-line">attrition across 1,470 employees, concentrated in a handful of roles rather than spread evenly.</p>
+        </div>
+        <h3>Employee churn and attrition</h3>
+        <p>Replacing people costs more than keeping them, so the question was where the bucket leaks first.</p>
+        <ul>
+          <li>Sales representatives, software engineers and recruiters left at the highest rates</li>
+          <li>Low job satisfaction tracked with higher exits; pay explained part of the pattern but not all of it — well-paid roles churned too</li>
+          <li>Average annual salary of 112.96K against 80 promotions in the period</li>
+          <li>One department held 65.37% of headcount, which changes how any company-wide average should be read</li>
+        </ul>
+        <div class="meta"><span>Tableau · calculated fields</span><a href="https://public.tableau.com/app/profile/ahmed.heiba/viz/DEPIprojectcompetation/Dashboard1">Open dashboard</a></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="shot">
+        <div class="shot-bar"><span class="tag">Customer analytics</span><span class="tool">Power BI</span></div>
+        <img src="dashboard-customer-churn.png" alt="Power BI dashboard analysing customer churn, showing a 27.17% churn rate, churn reasons, payment method mix, and monthly charge by gender" loading="lazy" width="1280" height="703">
+      </div>
+      <div class="case-content">
+        <div class="stat-row">
+          <span class="num">27.17%</span>
+          <p class="finding-line">of the customer base churned — 897 of 3,301 customers — and competitor switching dwarfed every other reason combined.</p>
+        </div>
+        <h3>Customer churn and cancellation drivers</h3>
+        <p>Why customers were actually leaving, and whether the reason was something the business could fix.</p>
+        <ul>
+          <li>Churn reasons broken down by category: competitor-related reasons vastly outweighed attitude, dissatisfaction and price combined</li>
+          <li>Credit card was the most common payment method in the customer base, used by more than half</li>
+          <li>Monthly charge compared by gender and by senior-citizen status, to check whether one group carried a heavier cost burden</li>
+          <li>State- and gender-level filters let the churn rate be checked for any single segment on demand</li>
+        </ul>
+        <div class="meta"><span>Power BI</span></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="shot">
+        <div class="shot-bar"><span class="tag">Retail</span><span class="tool">Power BI</span></div>
+        <img src="dashboard-nike-sales.png" alt="Power BI dashboard on Nike sales performance 2020 to 2021, showing sales trends by product, revenue by region, and average price per unit of $44.74" loading="lazy" width="1280" height="714">
+      </div>
+      <div class="case-content">
+        <div class="stat-row">
+          <span class="num">$44.74</span>
+          <p class="finding-line">average price per unit, with sales channel — not product — driving most of the volume difference.</p>
+        </div>
+        <h3>Nike sales performance, 2020–2021</h3>
+        <p>Two years of sales read by product line, region and channel to see what moved and where.</p>
+        <ul>
+          <li>Quarterly trends for men's apparel, athletic and streetwear lines against women's categories</li>
+          <li>Revenue compared across five regions to separate real growth from market-wide movement</li>
+          <li>Units by sales method — online, outlet and in-store — broken down by state</li>
+        </ul>
+        <div class="meta"><span>Power BI · time intelligence</span></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="shot">
+        <div class="shot-bar"><span class="tag">Finance</span><span class="tool">Power BI</span></div>
+        <img src="dashboard-investment.png" alt="Power BI dashboard on investment preferences, showing a 49.9% male / 50.1% female split and a gender-by-instrument heatmap across gold, bonds, deposits, mutual funds, PPF, equity and debentures" loading="lazy" width="1280" height="708">
+      </div>
+      <div class="case-content">
+        <div class="stat-row">
+          <span class="num">49.9/50.1</span>
+          <p class="finding-line">gender split among respondents — nearly even — though men and women didn't put their money in the same places.</p>
+        </div>
+        <h3>Investment preferences by age and gender</h3>
+        <p>Where people put their money, and whether the choice follows age or gender more closely.</p>
+        <ul>
+          <li>Near-even respondent split: 49.9% male, 50.1% female</li>
+          <li>Gold drew the largest sum from women; among men, gold and debentures were both highest, well ahead of government bonds</li>
+          <li>Provident funds and mutual funds attracted the smallest amounts from both groups</li>
+          <li>Heatmap of amount invested per instrument by gender, with age groups mapped against each avenue</li>
+        </ul>
+        <div class="meta"><span>Power BI · Excel</span></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="shot">
+        <div class="shot-bar"><span class="tag">Education</span><span class="tool">Power BI</span></div>
+        <img src="dashboard-student-performance.png" alt="Power BI dashboard on student performance, showing a 0.68 average performance factor, a lunch-programme gap, test-preparation impact, and parental education correlation" loading="lazy" width="1280" height="716">
+      </div>
+      <div class="case-content">
+        <div class="stat-row">
+          <span class="num">0.68</span>
+          <p class="finding-line">average performance factor, rising in step with how far the parents had studied.</p>
+        </div>
+        <h3>What moves student results</h3>
+        <p>Reading, writing and maths scores set against the background students bring with them.</p>
+        <ul>
+          <li>Parental education correlated positively with performance across every group</li>
+          <li>Students who completed a test-preparation course scored higher across reading, writing and maths than those who didn't</li>
+          <li>A visible gap between students on standard lunch and those on free or reduced lunch</li>
+          <li>Results filterable by group, which made one group's shortfall specific enough to act on</li>
+          <li>Closed with three recommendations: targeted preparation courses, parent engagement, and a standardised lunch programme</li>
+        </ul>
+        <div class="meta"><span>Power BI · correlation analysis</span></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ الخبرة ============ -->
+<section class="wrap" id="background">
+  <div class="head">
+    <h2>Background</h2>
+    <p>Pharmacy first, data second — and the first half is why the second half works. Audits, error analysis and drug inventory are all data problems wearing a lab coat.</p>
+  </div>
+
+  <div class="track">
+
+    <div class="job">
+      <div class="when">Apr 2018 — present · Remote</div>
+      <h3>Data Analyst</h3>
+      <div class="where">TELUS Digital</div>
+      <p>Part-time freelance work reviewing online advertisements: rating relevance against search terms, and assessing content, layout, grammar, tone and cultural fit.</p>
+    </div>
+
+    <div class="job">
+      <div class="when">May 2023 — Nov 2025 · Elmahalla Elkubra, Egypt</div>
+      <h3>Staff Pharmacist</h3>
+      <div class="where">Elmahalla Elkubra General Hospital</div>
+      <p>Dispensing and patient counselling, drug inventory management, medication safety, and daily work alongside the clinical team.</p>
+    </div>
+
+    <div class="job">
+      <div class="when">Jun 2021 — Nov 2023 · Sharm El-Sheikh, Egypt</div>
+      <h3>Hospital Pharmacist</h3>
+      <div class="where">Sharm El-Sheikh International Hospital</div>
+      <p>Optimised drug therapy with doctors and nurses, resolved drug-related problems, and provided drug information to staff and patients.</p>
+    </div>
+
+    <div class="job">
+      <div class="when">Jul 2021 — Mar 2023 · Egypt</div>
+      <h3>Occupational Safety and Health Specialist</h3>
+      <div class="where">National Blood Transfusion Service</div>
+      <p>Safety assessment and problem solving across transfusion service operations.</p>
+    </div>
+
+    <div class="job">
+      <div class="when">Dec 2020 — Jun 2021 · Cairo, Egypt</div>
+      <h3>Production Pharmacist, trainee</h3>
+      <div class="where">Sanofi Egypt</div>
+      <p>Followed line performance and efficiency, audited machine operation for compliance, and cut inventory and monthly labour by levelling actual output against planned lines.</p>
+    </div>
+
+    <div class="job">
+      <div class="when">Oct 2019 — Nov 2020 · Cairo, Egypt</div>
+      <h3>Hospital Pharmacist, military service</h3>
+      <div class="where">Al-Helmiya Military Orthopedic and Bariatric Hospital</div>
+      <p>Audited pharmacy processes and ward stock, traced medication errors and near misses back to root causes, wrote SOPs for drug handling, oversaw sterile compounding, and managed recalls.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ التعليم والشهادات ============ -->
+<section class="wrap" id="credentials">
+  <div class="head">
+    <h2>Education and certificates</h2>
+    <p>Two degrees in pharmacy, two programmes in analytics.</p>
+  </div>
+
+  <div class="split">
+    <div>
+      <div class="edu">
+        <div class="when">2025</div>
+        <h3>Google Professional Data Analytics Program</h3>
+        <div class="where">Google, on Coursera</div>
+        <p>Full analytics workflow: asking the right question, preparing and cleaning data, analysing and sharing results.</p>
+      </div>
+      <div class="edu">
+        <div class="when">Nov 2024 — May 2025 · Cairo</div>
+        <h3>Data Analytics — Microsoft Power BI Engineer</h3>
+        <div class="where">Digital Egypt Pioneers Program · 3.9/4</div>
+        <p>Data modelling, DAX, Power Query, Azure data services, and data governance and quality.</p>
+      </div>
+      <div class="edu">
+        <div class="when">2020 — 2021 · Kafr El-Sheikh</div>
+        <h3>Postgraduate Diploma in Clinical Pharmacy</h3>
+        <div class="where">Kafr El-Sheikh University</div>
+        <p>Thesis on the impact of clinical decision support systems in reducing medication errors in intensive care. Covered EHR data auditing and statistical evaluation of intervention outcomes.</p>
+      </div>
+      <div class="edu">
+        <div class="when">2014 — 2019 · Kafr El-Sheikh</div>
+        <h3>BPharm, Pharmaceutical Sciences</h3>
+        <div class="where">Kafr El-Sheikh University · 3.8/4, with honours</div>
+      </div>
+    </div>
+
+    <div>
+      <ul class="certs">
+        <li><span><span class="name">Data Analyst L1</span><span class="by">Coursera</span></span><span class="yr">Feb 2026</span></li>
+        <li><span><span class="name">Process Data from Dirty to Clean</span><span class="by">Google</span></span><span class="yr">Dec 2025</span></li>
+        <li><span><span class="name">Delivering Quality Work with Agility</span><span class="by">IBM</span></span><span class="yr">Aug 2025</span></li>
+        <li><span><span class="name">Data Fundamentals</span><span class="by">IBM</span></span><span class="yr">May 2025</span></li>
+        <li><span><span class="name">Prepare Data for Exploration</span><span class="by">Google</span></span><span class="yr">Dec 2024</span></li>
+        <li><span><span class="name">Ask Questions to Make Data-Driven Decisions</span><span class="by">Google</span></span><span class="yr">Dec 2024</span></li>
+        <li><span><span class="name">EF SET English, 87/100 — C2</span><span class="by">EF SET</span></span><span class="yr">Dec 2024</span></li>
+        <li><span><span class="name">Foundations: Data, Data, Everywhere</span><span class="by">Google</span></span><span class="yr">Oct 2023</span></li>
+      </ul>
+      <p class="verify">All badges are verifiable on <a href="https://www.credly.com/users/ahmed-heiba.1acd94ba">Credly</a> and <a href="https://www.coursera.org/account/accomplishments/badge/lSyzAVllQ4-sswFZZZOPkg">Coursera</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ الأدوات واللغات ============ -->
+<section class="wrap">
+  <div class="head"><h2>Toolkit</h2></div>
+  <div class="kit">
+    <div>
+      <h3>Analysis and BI</h3>
+      <ul>
+        <li><b>Power BI</b> — modelling, DAX, Power Query</li>
+        <li><b>Tableau</b> — published vizzes</li>
+        <li><b>SQL</b> — queries and SSRS reporting</li>
+        <li><b>Python</b> — analysis and cleaning</li>
+        <li><b>Excel</b> — advanced</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Platform and process</h3>
+      <ul>
+        <li><b>Azure</b> data services</li>
+        <li><b>Power Apps</b> and Power Automate</li>
+        <li><b>Data governance</b> and quality</li>
+        <li><b>GMP</b> and audit practice</li>
+        <li><b>Clinical data</b> interpretation</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Languages</h3>
+      <ul>
+        <li><b>Arabic</b> — mother tongue</li>
+        <li><b>English</b> — C1, EF SET 87/100</li>
+        <li><b>Italian</b> — A2, in progress</li>
+        <li><b>German</b> — A1</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ الغلاف الأخير: التواصل ============ -->
+<section class="dark contact-cover" id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="lede">I'm looking for a data analyst role — healthcare, pharma or anywhere the data has consequences. Rome, elsewhere in Europe, or remote.</p>
+    <div class="reach">
+      <div><span>Email</span><a href="mailto:ahmedhiyba11@gmail.com">ahmedhiyba11@gmail.com</a></div>
+      <div><span>WhatsApp</span><a href="https://wa.me/393444398526">+39 344 439 8526</a></div>
+      <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/ahmed-heiba-in3893121/">ahmed-heiba</a></div>
+      <div><span>GitHub</span><a href="https://github.com/ahmedhiyba11">ahmedhiyba11</a></div>
+      <div><span>Tableau Public</span><a href="https://public.tableau.com/app/profile/ahmed.heiba/vizzes">ahmed.heiba</a></div>
+      <div><span>Kaggle</span><a href="https://www.kaggle.com/ahmedheiba11">ahmedheiba11</a></div>
+    </div>
+  </div>
+</section>
+<footer class="dark foot"><div class="wrap"><p>Built and maintained by Ahmed Hiba.</p></div></footer>
+
+</body>
+</html>
